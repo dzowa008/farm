@@ -1,5 +1,61 @@
-import React from 'react'
-import { FiGlobe, FiSettings, FiTruck } from 'react-icons/fi'
+import React, { useState, useEffect, useRef } from 'react';
+import { FiGlobe, FiSettings, FiTruck } from 'react-icons/fi';
+
+// ----------------------------------------------------------------------------------
+// 1. ANIMATED COUNTER COMPONENT
+// ----------------------------------------------------------------------------------
+
+const AnimatedCounter = ({ targetNumber, duration }) => {
+  const [count, setCount] = useState(0);
+  const intervalRef = useRef(null);
+  const finalNumber = targetNumber || 435; // Default to 435
+
+  useEffect(() => {
+    // Clear any previous interval before starting a new one
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    const start = 0;
+    const end = finalNumber;
+    // Calculate the step size to complete the animation within the duration (e.g., 2000ms)
+    // We update every 10ms, so duration / 10 is the total number of steps.
+    const steps = duration / 10;
+    const increment = Math.ceil(end / steps);
+    let current = start;
+
+    intervalRef.current = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        setCount(end);
+        clearInterval(intervalRef.current);
+      } else {
+        setCount(current);
+      }
+    }, 10); // Update every 10ms for a smooth animation
+
+    // Cleanup function to clear the interval when the component unmounts
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [finalNumber, duration]); // Dependency array ensures effect re-runs if props change
+
+  return (
+    <div className="relative rounded-2xl border border-amber-300/50 bg-amber-200 text-green-900 px-9 py-7">
+      <div className="text-4xl md:text-5xl font-extrabold tracking-tight">
+        * {count}<span className="align-super text-lg md:text-xl font-bold">+</span>
+      </div>
+      <div className="mt-1 text-xs md:text-sm tracking-wide text-green-900/80">Growth Tons' of Harvest</div>
+    </div>
+  );
+};
+
+
+// ----------------------------------------------------------------------------------
+// 2. MAIN WHO WE ARE COMPONENT
+// ----------------------------------------------------------------------------------
 
 export default function WhoWeAre() {
   return (
@@ -18,16 +74,23 @@ export default function WhoWeAre() {
               className="rounded-[28px] object-cover w-full h-[340px] md:h-[440px]"
               src="/who.jpg"
               alt="Farmer at work" />
+            
+            {/* START: Animated Counter Integration */}
             <div className="absolute bottom-2 right-2">
               <div className="relative">
                 <div className="absolute -inset-3 bg-[#F6F7EE] rounded-tl-2xl rounded-br-2xl rounded-tr-none rounded-bl-none" aria-hidden></div>
-                <div className="relative rounded-2xl border border-amber-300/50 bg-amber-200 text-green-900 px-9 py-7">
-                  <div className="text-4xl md:text-5xl font-extrabold tracking-tight">* 435<span className="align-super text-lg md:text-xl font-bold">+</span></div>
-                  <div className="mt-1 text-xs md:text-sm tracking-wide text-green-900/80">Growth Tons' of Harvest</div>
-                </div>
+                
+                {/* Replaced static div with the AnimatedCounter component */}
+                <AnimatedCounter 
+                  targetNumber={435} // The number to count up to
+                  duration={2000}    // The duration of the animation in milliseconds (2 seconds)
+                />
+
               </div>
             </div>
+            {/* END: Animated Counter Integration */}
           </div>
+
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-white text-green-900 px-3 py-1 text-[11px] font-semibold shadow-sm border border-green-100">
               <span className="inline-block h-2 w-2 rounded-full bg-green-300" aria-hidden></span>
@@ -43,7 +106,6 @@ export default function WhoWeAre() {
               by injected humour, or randomised words which don’t look even.
             </p>
 
-            
             <div className="mt-8 grid sm:grid-cols-2 gap-8">
               <div className="flex items-start gap-3">
                 <div className="h-10 w-10 rounded-lg bg-green-100 text-green-700 grid place-items-center">
@@ -107,5 +169,5 @@ export default function WhoWeAre() {
         </div>
       </div>
     </section>
-  )
+  );
 }
