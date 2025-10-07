@@ -28,16 +28,16 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="absolute top-5 inset-x-0 z-50 animate-fade-down">
+    <header className="absolute top-5 inset-x-0 z-50">
       <div className="w-full px-0 h-10 flex items-center justify-between text-white">
-        <div className="flex items-center gap-2 animate-slide-in-left">
-          <img src="/logo.png" alt="Farm logo" className="h-8 w-20 object-contain ml-6 transition-transform duration-300 hover:scale-110" />
+        <div className="flex items-center gap-2">
+          <img src="/logo.png" alt="Farm logo" className="h-8 w-20 object-contain ml-6" />
         </div>
         
         <nav className="hidden md:flex items-center gap-6 text-sm ml-4 mr-auto">
           {/* Home */}
-          <a href="/" className="group inline-flex items-center text-white hover:text-amber-200 relative pl-3 transition-all duration-300">
-            <span className="absolute left-0 top-1/2 -translate-y-1/2 h-[6px] w-[6px] rounded-full bg-amber-300 group-hover:bg-amber-200 transition-all duration-300 group-hover:scale-125"></span>
+          <a href="/" className="group inline-flex items-center text-white hover:text-amber-200 relative pl-3">
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 h-[6px] w-[6px] rounded-full bg-amber-300 group-hover:bg-amber-200"></span>
             Home
           </a>
 
@@ -71,12 +71,12 @@ export default function Navbar() {
 
           {/* Other navigation links */}
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="group inline-flex items-center text-white hover:text-amber-200 relative pl-3 transition-all duration-300"
+            <a 
+              key={link.href} 
+              href={link.href} 
+              className="group inline-flex items-center text-white hover:text-amber-200 relative pl-3"
             >
-              <span className="absolute left-0 top-1/2 -translate-y-1/2 h-[6px] w-[6px] rounded-full bg-amber-300 group-hover:bg-amber-200 transition-all duration-300 group-hover:scale-125"></span>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 h-[6px] w-[6px] rounded-full bg-amber-300 group-hover:bg-amber-200"></span>
               {link.label}
             </a>
           ))}
@@ -89,22 +89,22 @@ export default function Navbar() {
               <div className="text-sm font-semibold text-white">+1(212)255-511</div>
             </div>
           </div>
-          <button className="hidden md:inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-green-900 shadow-lg shadow-black/10 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:bg-amber-50">
+          <button className="hidden md:inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-green-900 shadow-lg shadow-black/10">
             <FiSearch size={16} aria-hidden />
             <span className="sr-only">Search</span>
           </button>
         </nav>
 
         <div className="flex items-center justify-end">
-          <div className="hidden sm:flex items-center justify-center absolute right-[3px] -top-6 z-50 bg-[#F6F7EE] w-[160px] h-[110px] rounded-bl-[40px] animate-slide-in-right">
-            <a href="/contact" className="inline-flex items-center gap-2 rounded-full bg-amber-300 text-green-900 font-semibold px-5 py-2.5 hover:bg-amber-200 pointer-events-auto transition-all duration-300 hover:scale-105 hover:shadow-lg">
+          <div className="hidden sm:flex items-center justify-center absolute right-[3px] -top-6 z-50 bg-[#F6F7EE] w-[160px] h-[70px] rounded-bl-[40px]">
+            <a href="/contact" className="inline-flex items-center gap-2 rounded-full bg-amber-300 text-green-900 font-semibold px-5 py-2.5 hover:bg-amber-200 pointer-events-auto">
               Get In Touch
             </a>
           </div>
           {/* Image below the top-right box */}
           <img
             src="/SVG.png"
-            className="hidden sm:block absolute right-0 top-[85px] z-40 w-[40px] h-[40px]"
+            className="hidden sm:block absolute right-0 top-[45px] z-40 w-[40px] h-[40px]"
           />
           <img
             src="/SVG.png"
