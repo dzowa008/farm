@@ -61,11 +61,11 @@ export default function Contact() {
 
      
       <section className="bg-white py-10 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 ">
           <div>
-            <img src="/contact.jpg" alt="Contact" className="w-full h-[420px] object-cover rounded-2xl" />
+            <img src="/contact.jpg" alt="Contact" className="w-full h-[690px] object-cover " />
           </div>
-          <div className="bg-[#F6F7EE] rounded-2xl p-6 md:p-8">
+          <div className="bg-[#F6F7EE]  p-6 md:p-8">
             <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold text-green-900 border border-green-900/20 bg-white/70">Get In Contact Us</span>
             <h2 className="text-2xl md:text-3xl font-semibold text-green-900 mt-4">Have any Questions? Get in Touch!</h2>
             <form className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -94,7 +94,7 @@ export default function Contact() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.719430293599!2d7.4951!3d9.072264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0a4cb3a4c6d9%3A0x26d6a7f2c0a1d8!2sAbuja!5e0!3m2!1sen!2sng!4v1696520000000!5m2!1sen!2sng"
               width="100%"
               height="420"
-              style={{ border: 0 }}
+              style={{ border: 0 }}   
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
