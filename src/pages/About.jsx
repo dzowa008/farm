@@ -22,7 +22,7 @@ export default function About() {
         subtitle=""
         ctaLabel=""
       />
-      <WhoWeAre />
+      {/* <WhoWeAre /> */}
       <AboutServicesStrip />
       <AboutGreenBlock />
       {/* <Spotlight /> */}
