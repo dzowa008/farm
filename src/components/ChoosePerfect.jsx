@@ -15,25 +15,30 @@ export default function ChoosePerfect() {
   return (
     <section className="bg-[#F6F7EE] py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
-        <div className="flex justify-center">
+
+        <div className="flex justify-center animate-fade-down">
           <div className="inline-flex items-center gap-2 rounded-full bg-white text-green-900 px-3 py-1 text-[11px] font-semibold shadow-sm border border-green-100">
+            <span className="inline-block h-2 w-2 rounded-full bg-green-300 animate-pulse-slow" aria-hidden></span>
             Grow Naturally
           </div>
         </div>
-        <h2 className="mt-16 text-center text-3xl md:text-5xl font-semibold text-green-900 leading-tight">
+        <h2 className="mt-16 text-center text-3xl md:text-5xl font-semibold text-green-900 leading-tight animate-fade-up delay-100">
           Choose What's Perfect
           <br className="hidden md:block" />
           For Your Field
         </h2>
 
-        
+
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-         
+
           <div className="space-y-8 mt-6 md:mt-12">
-            {left.map((it) => (
-              <div key={it.title} className="flex items-start gap-3">
-                <div className="h-12 w-12 rounded-full bg-yellow-200 text-green-900 grid place-items-center">
+            {left.map((it, index) => (
+              <div
+                key={it.title}
+                className="flex items-start gap-3 group animate-slide-in-left"
+                style={{ animationDelay: `${200 + index * 150}ms` }}
+              >
+                <div className="h-12 w-12 rounded-full bg-yellow-200 text-green-900 grid place-items-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:bg-amber-300">
                   {it.icon}
                 </div>
                 <div>
@@ -44,16 +49,21 @@ export default function ChoosePerfect() {
             ))}
           </div>
 
-          
-          <div className="flex items-center justify-center">
-            <img src="/corn.png" alt="Corn" className="h-466px md:h-433px object-contain" />
+
+
+          <div className="flex items-center justify-center animate-scale-in delay-200">
+            <img src="/corn.png" alt="Corn" className="h-466px md:h-433px object-contain transition-transform duration-1000 hover:scale-110 animate-float" />
           </div>
 
-         
+
           <div className="space-y-8 mt-6 md:mt-12">
-            {right.map((it) => (
-              <div key={it.title} className="flex items-start gap-3">
-                <div className="h-12 w-12 rounded-full bg-yellow-200 text-green-900 grid place-items-center">
+            {right.map((it, index) => (
+              <div
+                key={it.title}
+                className="flex items-start gap-3 group animate-slide-in-right"
+                style={{ animationDelay: `${200 + index * 150}ms` }}
+              >
+                <div className="h-12 w-12 rounded-full bg-yellow-200 text-green-900 grid place-items-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:bg-amber-300">
                   {it.icon}
                 </div>
                 <div>

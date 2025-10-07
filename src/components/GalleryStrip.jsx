@@ -8,8 +8,16 @@ export default function GalleryStrip() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {images.map((src, i) => (
-            <div key={i} className="rounded-2xl overflow-hidden">
-              <img src={src} alt="gallery" className="w-full h-48 md:h-56 object-cover" />
+            <div
+              key={i}
+              className="rounded-2xl overflow-hidden group cursor-pointer animate-fade-up"
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
+              <img
+                src={src}
+                alt="gallery"
+                className="w-full h-48 md:h-56 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
+              />
             </div>
           ))}
         </div>

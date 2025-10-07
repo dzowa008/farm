@@ -38,9 +38,9 @@ export default function Footer() {
             </div>
             <p className="mt-4 text-sm text-neutral-600 max-w-xs">Mauris sed molestie sem. Sed vel vestibulum elit, non accumsan risus. In vitae sapien viverra est Duo ei ullum inani senserit.</p>
             <div className="mt-4 flex items-center gap-3">
-              <a href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 text-green-900 hover:bg-green-50"><FiFacebook /></a>
-              <a href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 text-green-900 hover:bg-green-50"><FiLinkedin /></a>
-              <a href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 text-green-900 hover:bg-green-50"><FiInstagram /></a>
+              <a href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 text-green-900 hover:bg-amber-300 hover:border-amber-300 hover:text-white transition-all duration-300 hover:scale-110 hover:-rotate-6"><FiFacebook /></a>
+              <a href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 text-green-900 hover:bg-amber-300 hover:border-amber-300 hover:text-white transition-all duration-300 hover:scale-110 hover:-rotate-6"><FiLinkedin /></a>
+              <a href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-300 text-green-900 hover:bg-amber-300 hover:border-amber-300 hover:text-white transition-all duration-300 hover:scale-110 hover:-rotate-6"><FiInstagram /></a>
             </div>
           </div>
           
@@ -50,9 +50,9 @@ export default function Footer() {
               <div>
                 <div className="font-semibold text-green-900">Useful Link</div>
                 <ul className="mt-3 space-y-2 text-neutral-600">
-                  <li><a href="#" className="hover:underline">Company</a></li>
-                  <li><a href="#" className="hover:underline">About</a></li>
-                  <li><a href="#" className="hover:underline">Contact</a></li>
+                  <li><a href="#" className="hover:underline hover:text-amber-600 transition-colors duration-300">Company</a></li>
+                  <li><a href="#" className="hover:underline hover:text-amber-600 transition-colors duration-300">About</a></li>
+                  <li><a href="#" className="hover:underline hover:text-amber-600 transition-colors duration-300">Contact</a></li>
                 </ul>
               </div>
               <div>

@@ -30,16 +30,20 @@ export default function FeatureCards() {
     <section className="bg-[#F6F7EE] py-10 md:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {items.map((it) => (
-            <div key={it.title} className="relative rounded-2xl bg-white shadow-sm shadow-black/5 p-5 md:p-6 overflow-hidden">
-             
-              <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-yellow-200 text-green-900">
+          {items.map((it, index) => (
+            <div
+              key={it.title}
+              className="relative rounded-2xl bg-white shadow-sm shadow-black/5 p-5 md:p-6 overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-500 animate-fade-up cursor-pointer"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-yellow-200 text-green-900 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-amber-300">
                 {it.icon}
               </div>
-              <h3 className="mt-4 text-base md:text-lg font-semibold text-green-900">{it.title}</h3>
+              <h3 className="mt-4 text-base md:text-lg font-semibold text-green-900 transition-colors duration-300 group-hover:text-amber-600">{it.title}</h3>
               <p className="mt-2 text-sm text-neutral-600 leading-relaxed">{it.desc}</p>
-              
-              <div className="absolute bottom-3 right-3 h-8 w-8 rounded-full border border-neutral-200 grid place-items-center text-neutral-700 bg-white">
+
+              <div className="absolute bottom-3 right-3 h-8 w-8 rounded-full border border-neutral-200 grid place-items-center text-neutral-700 bg-white transition-all duration-300 group-hover:bg-amber-300 group-hover:border-amber-300 group-hover:text-white group-hover:scale-110">
                 <FiArrowUpRight size={16} aria-hidden />
               </div>
               

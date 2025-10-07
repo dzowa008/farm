@@ -15,12 +15,15 @@ export default function Hero({
   return (
     <section className="relative overflow-hidden text-white m-2.5 rounded-b-[40px] rounded-tl-[40px]">
       <style>{`
-        @keyframes bgZoom { from { transform: scale(1); } to { transform: scale(1.06); } }
+        @keyframes bgZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
       `}</style>
       <div
-        className="absolute inset-0 bg-center bg-cover"
-        style={{ backgroundImage: `url(${bg})` }}
+        className="absolute inset-0 bg-center bg-cover transition-transform duration-[8000ms] ease-out"
+        style={{
+          backgroundImage: `url(${bg})`,
+          animation: 'bgZoom 20s ease-in-out infinite alternate'
+        }}
         aria-hidden="true"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" aria-hidden="true" />
@@ -41,7 +44,10 @@ export default function Hero({
           )}
           {ctaLabel && (
             <div className="mt-8 flex gap-3" style={{ animation: 'fadeUp 800ms ease-out 320ms both' }}>
-              <a href="#contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-black font-semibold hover:bg-white/90">{ctaLabel} <FiArrowRight size={18} aria-hidden /></a>
+              <a href="#contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-black font-semibold hover:bg-amber-300 transition-all duration-300 hover:scale-105 hover:shadow-xl group">
+                {ctaLabel}
+                <FiArrowRight size={18} aria-hidden className="transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
             </div>
           )}
         </div>
