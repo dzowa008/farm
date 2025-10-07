@@ -1,53 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { FiGlobe, FiSettings, FiTruck } from 'react-icons/fi'
 
 export default function WhoWeAre() {
-  const [harvestCount, setHarvestCount] = useState(0)
-  const [hasAnimated, setHasAnimated] = useState(false)
-  const sectionRef = React.useRef(null)
-  const targetNumber = 435
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true)
-            let startTimestamp
-            const duration = 2000
-
-            const step = (timestamp) => {
-              if (!startTimestamp) startTimestamp = timestamp
-              const progress = timestamp - startTimestamp
-              const percentage = Math.min(progress / duration, 1)
-              const currentCount = Math.floor(percentage * targetNumber)
-              setHarvestCount(currentCount)
-
-              if (percentage < 1) {
-                window.requestAnimationFrame(step)
-              }
-            }
-
-            window.requestAnimationFrame(step)
-          }
-        })
-      },
-      { threshold: 0.3 }
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
-    }
-  }, [hasAnimated])
-
   return (
-    <section ref={sectionRef} className="bg-[#F6F7EE] py-16 md:py-20">
+    <section className="bg-[#F6F7EE] py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <style>{`
           @keyframes marquee {
@@ -57,27 +13,27 @@ export default function WhoWeAre() {
         `}</style>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
-          <div className="relative animate-slide-in-left">
+          <div className="relative">
             <img
-              className="rounded-[28px] object-cover w-full h-[340px] md:h-[440px] transition-transform duration-700 hover:scale-105"
+              className="rounded-[28px] object-cover w-full h-[340px] md:h-[440px]"
               src="/who.jpg"
               alt="Farmer at work" />
-            <div className="absolute bottom-2 right-2 animate-scale-in delay-300">
+            <div className="absolute bottom-2 right-2">
               <div className="relative">
                 <div className="absolute -inset-3 bg-[#F6F7EE] rounded-tl-2xl rounded-br-2xl rounded-tr-none rounded-bl-none" aria-hidden></div>
-                <div className="relative rounded-2xl border border-amber-300/50 bg-amber-200 text-green-900 px-9 py-7 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  <div className="text-4xl md:text-5xl font-extrabold tracking-tight">* {harvestCount}<span className="align-super text-lg md:text-xl font-bold">+</span></div>
+                <div className="relative rounded-2xl border border-amber-300/50 bg-amber-200 text-green-900 px-9 py-7">
+                  <div className="text-4xl md:text-5xl font-extrabold tracking-tight">* 435<span className="align-super text-lg md:text-xl font-bold">+</span></div>
                   <div className="mt-1 text-xs md:text-sm tracking-wide text-green-900/80">Growth Tons' of Harvest</div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="animate-slide-in-right">
+          <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-white text-green-900 px-3 py-1 text-[11px] font-semibold shadow-sm border border-green-100">
-              <span className="inline-block h-2 w-2 rounded-full bg-green-300 animate-pulse-slow" aria-hidden></span>
+              <span className="inline-block h-2 w-2 rounded-full bg-green-300" aria-hidden></span>
               Who We Are
             </div>
-            <h2 className="mt-5 text-4xl md:text-5xl font-semibold text-green-900 leading-tight tracking-tight animate-fade-up delay-100">
+            <h2 className="mt-5 text-4xl md:text-5xl font-semibold text-green-900 leading-tight tracking-tight">
               Currently we are growing
               <br className="hidden md:block" />
               and selling organic food
@@ -87,11 +43,10 @@ export default function WhoWeAre() {
               by injected humour, or randomised words which don’t look even.
             </p>
 
-
-
+            
             <div className="mt-8 grid sm:grid-cols-2 gap-8">
-              <div className="flex items-start gap-3 group animate-fade-up delay-300">
-                <div className="h-10 w-10 rounded-lg bg-green-100 text-green-700 grid place-items-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-amber-200">
+              <div className="flex items-start gap-3">
+                <div className="h-10 w-10 rounded-lg bg-green-100 text-green-700 grid place-items-center">
                   <FiGlobe size={20} />
                 </div>
                 <div>
@@ -99,8 +54,8 @@ export default function WhoWeAre() {
                   <div className="text-sm text-neutral-600">Ages of lorem ipsum available majority have suffered.</div>
                 </div>
               </div>
-              <div className="flex items-start gap-3 group animate-fade-up delay-400">
-                <div className="h-10 w-10 rounded-lg bg-green-100 text-green-700 grid place-items-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-amber-200">
+              <div className="flex items-start gap-3">
+                <div className="h-10 w-10 rounded-lg bg-green-100 text-green-700 grid place-items-center">
                   <FiSettings size={20} />
                 </div>
                 <div>
@@ -108,8 +63,8 @@ export default function WhoWeAre() {
                   <div className="text-sm text-neutral-600">Ages of lorem ipsum available majority have suffered.</div>
                 </div>
               </div>
-              <div className="flex items-start gap-3 sm:col-span-2 group animate-fade-up delay-500">
-                <div className="h-10 w-10 rounded-lg bg-green-100 text-green-700 grid place-items-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-amber-200">
+              <div className="flex items-start gap-3 sm:col-span-2">
+                <div className="h-10 w-10 rounded-lg bg-green-100 text-green-700 grid place-items-center">
                   <FiTruck size={20} />
                 </div>
                 <div>
