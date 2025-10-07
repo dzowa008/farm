@@ -86,7 +86,7 @@ export default function Navbar() {
             <FiPhoneCall className="text-amber-300" size={22} aria-hidden />
             <div className="leading-tight">
               <div className="text-[11px] text-green-100">Call us Now</div>
-              <div className="text-sm font-semibold text-white">+1(212)255-511</div>
+              <div className="text-sm font-semibold text-white">+(263)78-763-090</div>
             </div>
           </div>
           <button className="hidden md:inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-green-900 shadow-lg shadow-black/10">
