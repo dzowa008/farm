@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { FiGlobe, FiSettings, FiTruck } from 'react-icons/fi'
 
 // --- 1. NEW: Define Google Fonts Import and Font Family Variables ---
@@ -42,8 +42,52 @@ const MarqueeStyles = `
 `;
 
 export default function WhoWeAre() {
+  const [harvestCount, setHarvestCount] = useState(0)
+  const [hasAnimated, setHasAnimated] = useState(false)
+  const sectionRef = React.useRef(null)
+  const targetNumber = 435
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true)
+            let startTimestamp
+            const duration = 2000
+
+            const step = (timestamp) => {
+              if (!startTimestamp) startTimestamp = timestamp
+              const progress = timestamp - startTimestamp
+              const percentage = Math.min(progress / duration, 1)
+              const currentCount = Math.floor(percentage * targetNumber)
+              setHarvestCount(currentCount)
+
+              if (percentage < 1) {
+                window.requestAnimationFrame(step)
+              }
+            }
+
+            window.requestAnimationFrame(step)
+          }
+        })
+      },
+      { threshold: 0.3 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [hasAnimated])
+
   return (
-    <section className="bg-[#F6F7EE] py-16 md:py-20">
+    <section ref={sectionRef} className="bg-[#F6F7EE] py-16 md:py-20">
       {/* 2. NEW: Combine Font Imports and Styles */}
       <style>{FontImports + MarqueeStyles}</style>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -56,6 +100,24 @@ export default function WhoWeAre() {
               src="/who.jpg"
               alt="Farmer at work"
             />
+            {/* Harvest Count Card */}
+            <div className="absolute bottom-2 right-2 animate-scale-in delay-300">
+              <div className="relative">
+                <div
+                  className="absolute -inset-3 bg-[#F6F7EE] rounded-tl-2xl rounded-br-2xl rounded-tr-none rounded-bl-none"
+                  aria-hidden
+                ></div>
+                <div className="relative rounded-2xl border border-amber-300/50 bg-amber-200 text-green-900 px-9 py-7 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <div className="text-4xl md:text-5xl font-extrabold tracking-tight">
+                    * {harvestCount}
+                    <span className="align-super text-lg md:text-xl font-bold">+</span>
+                  </div>
+                  <div className="mt-1 text-xs md:text-sm tracking-wide text-green-900/80">
+                    Growth Tons' of Harvest
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           {/* Text/Features Column */}
           <div className="animate-slide-in-right">
