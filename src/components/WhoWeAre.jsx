@@ -101,18 +101,18 @@ export default function WhoWeAre() {
               alt="Farmer at work"
             />
             {/* Harvest Count Card */}
-            <div className="absolute bottom-2 right-2 animate-scale-in delay-300">
+            <div className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 animate-scale-in delay-300">
               <div className="relative">
                 <div
-                  className="absolute -inset-3 bg-[#F6F7EE] rounded-tl-2xl rounded-br-2xl rounded-tr-none rounded-bl-none"
+                  className="absolute -inset-2 sm:-inset-3 bg-[#F6F7EE] rounded-tl-xl sm:rounded-tl-2xl rounded-br-xl sm:rounded-br-2xl rounded-tr-none rounded-bl-none"
                   aria-hidden
                 ></div>
-                <div className="relative rounded-2xl border border-amber-300/50 bg-amber-200 text-green-900 px-9 py-7 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  <div className="text-4xl md:text-5xl font-extrabold tracking-tight">
+                <div className="relative rounded-xl sm:rounded-2xl border border-amber-300/50 bg-amber-200 text-green-900 px-4 py-3 sm:px-6 sm:py-5 md:px-9 md:py-7 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
                     * {harvestCount}
-                    <span className="align-super text-lg md:text-xl font-bold">+</span>
+                    <span className="align-super text-sm sm:text-base md:text-lg lg:text-xl font-bold">+</span>
                   </div>
-                  <div className="mt-1 text-xs md:text-sm tracking-wide text-green-900/80">
+                  <div className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs md:text-sm tracking-wide text-green-900/80 whitespace-nowrap">
                     Growth Tons' of Harvest
                   </div>
                 </div>
